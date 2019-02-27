@@ -4,13 +4,15 @@ def quickSort(unsorted):
         return unsorted
 
     pivot = unsorted[0]
-    greater = []
-    lesser = []
-    for i in unsorted[1:]:
-        if i > pivot:
-            greater.append(i)
-        else:
-            lesser.append(i)
+    # greater = []
+    # lesser = []
+    # for i in unsorted[1:]:
+    #     if i > pivot:
+    #         greater.append(i)
+    #     else:
+    #         lesser.append(i)
+    greater = list(item for item in unsorted[1:] if item > pivot)
+    lesser = list(item for item in unsorted[1:] if item <= pivot)
     return quickSort(lesser) +[pivot] + quickSort(greater)
 
 
