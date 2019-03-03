@@ -50,14 +50,14 @@ class Node:
         ans = ''
         if self.data == None:
             return ''
-        tab = '  '*depth
+        tab = '| '*depth
         R = 'None'
         L = 'None'
         if self.l: 
             L = self.l._repr(depth + 1)  
         if self.r: 
             R = self.r._repr(depth + 1)
-        ans = '''%s--%s\n%s|-%s'''% ( str(self.data), L,tab, R)
+        ans = '''%s---%s\n%s|--%s'''% ( str(self.data), L,tab, R)
         return ans
 
     def __repr__(self):
