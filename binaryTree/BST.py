@@ -1,3 +1,14 @@
+from time import time
+def timeDec(func):
+    def f(*args, **kwargs):
+        sTime = time()
+        rv = func(*args, **kwargs)
+        eTime= time()
+        print("Elapse time : ", eTime - sTime)
+        return rv
+    return f
+
+
 class Node:
     def __init__(self, data = None):
         self.data = data
@@ -23,28 +34,6 @@ class Node:
             return'[%s:%s, ]' % (str(self.data), str(self.l))
         else:
             return'[%s:%s,%s]' % (str(self.data), str(self.l), str(self.r))
-# '''
-# problem: print out BST beauty
-# solution:
-# overload __pre__ with extra variable
-# currently failing and are looking for new solution
-# pass vao trong day mot cai varible de dem tab
-
-# nen se tao ra 1 cai wrapper around cai __pre__ goi la _repr(self, depth) return (node repr, tab)
-# c= _repv
-# ans = ans + c[1]*' ' +c[2]  
-# muon implement
-# '''
-    # def __len__(self):
-    #     '''
-    #     number of Node 
-    #     '''
-    #     if (self.data is None):
-    #         return 0
-    #     if (self.l == None and self.r == None):
-    #         pass
-    #     else:
-    #         return 1 + len(self.l) + len(self.r)
         
     def _repr(self,depth=0):
         ans = ''
@@ -62,23 +51,16 @@ class Node:
 
     def __repr__(self):
         return (self._repr(0))
-    
 
-
-        # if self.l == self.r == None:
-        #     return repr(self.data)
-        # tab = depth * '  '
-        # return "%s %s--%s \n |_%s "% (tab,repr(self.data),repr(self.r,depth+1),repr(self.l,depth+1))
-
-
+@timeDec
+def toString(aNode):
+    return str(aNode)
 
 a = Node(3)
 a.add(7)
 a.add(5)
 a.add(6)
-# a.add(1)
-# a.add(2)
-# a.add(4)
-# b= repr(a)
-# print (b)
-print(repr(a))
+a.add(1)
+a.add(2)
+a.add(4)
+print (toString(a))
