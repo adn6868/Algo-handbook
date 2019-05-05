@@ -27,4 +27,4 @@ class Heap:
         self.h = list(a)
         for i in range(self.size // 2, -1, -1):
             self.maxHeapify(i)
-    
+
